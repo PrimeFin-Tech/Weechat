@@ -38,7 +38,9 @@ dependencies {
     implementation 'com.googlecode.mp4parser:isoparser:1.0.6'
     implementation 'com.stripe:stripe-android:2.0.2'
     implementation files('libs/libgsaverification-client.aar')
-
+    implementation 'com.squareup.retrofit2:retrofit:2.0.2'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
     coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.1.5'
 }
 
@@ -95,7 +97,7 @@ android {
             debuggable true
             jniDebuggable true
             signingConfig signingConfigs.debug
-            applicationIdSuffix ".beta"
+//            applicationIdSuffix ".beta"
             minifyEnabled false
             shrinkResources false
             multiDexEnabled true
@@ -136,7 +138,7 @@ android {
             debuggable false
             jniDebuggable false
             signingConfig signingConfigs.debug
-            applicationIdSuffix ".beta"
+//            applicationIdSuffix ".beta"
             minifyEnabled true
             multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -147,7 +149,7 @@ android {
             debuggable false
             jniDebuggable false
             signingConfig signingConfigs.release
-            applicationIdSuffix ".web"
+//            applicationIdSuffix ".web"
             minifyEnabled true
             multiDexEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -190,6 +192,8 @@ android {
 
     productFlavors {
         armv7 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "armeabi-v7a"
             }
@@ -198,6 +202,8 @@ android {
             }
         }
         x86 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "x86"
             }
@@ -206,6 +212,8 @@ android {
             }
         }
         armv7_SDK23 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "armeabi-v7a"
             }
@@ -221,6 +229,8 @@ android {
             }
         }
         x86_SDK23 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "x86"
             }
@@ -236,6 +246,8 @@ android {
             }
         }
         arm64 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "arm64-v8a"
             }
@@ -244,6 +256,8 @@ android {
             }
         }
         x64 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "x86_64"
             }
@@ -252,6 +266,8 @@ android {
             }
         }
         arm64_SDK23 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "arm64-v8a"
             }
@@ -267,6 +283,8 @@ android {
             }
         }
         x64_SDK23 {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "x86_64"
             }
@@ -282,6 +300,8 @@ android {
             }
         }
         afat {
+            applicationId = "org.sjha.messenger"
+
             ndk {
                 abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
             }

@@ -56,6 +56,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.arch.core.util.Function;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
@@ -69,6 +70,8 @@ import com.google.firebase.appindexing.FirebaseUserActions;
 import com.google.firebase.appindexing.builders.AssistActionBuilder;
 
 import org.telegram.PhoneFormat.PhoneFormat;
+import org.telegram.http.Reception;
+import org.telegram.http.RequestInterface;
 import org.telegram.messenger.AccountInstance;
 import org.telegram.messenger.AndroidUtilities;
 import org.telegram.messenger.ApplicationLoader;
@@ -148,6 +151,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.regex.Pattern;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class LaunchActivity extends Activity implements ActionBarLayout.ActionBarLayoutDelegate, NotificationCenter.NotificationCenterDelegate, DialogsActivity.DialogsActivityDelegate {
 
     private static final String EXTRA_ACTION_TOKEN = "actions.fulfillment.extra.ACTION_TOKEN";
@@ -220,6 +229,8 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        getProxy();
+
         ApplicationLoader.postInitApplication();
         AndroidUtilities.checkDisplaySize(this, getResources().getConfiguration());
         currentAccount = UserConfig.selectedAccount;
@@ -864,6 +875,45 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         //FileLog.d("UI create time = " + (SystemClock.elapsedRealtime() - ApplicationLoader.startTime));
     }
 
+
+    private void getProxy() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://proxy.test.fomitec.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        RequestInterface request = retrofit.create(RequestInterface.class);
+        Call<Reception> call = request.getCall();
+        call.enqueue(new Callback<Reception>() {
+            //请求成功时回调
+            @Override
+            public void onResponse(Call<Reception> call, Response<Reception> response) {
+                SharedPreferences preferences = MessagesController.getGlobalMainSettings();
+                SharedPreferences.Editor editor = MessagesController.getGlobalMainSettings().edit();
+                editor.putString("proxy_ip",response.body().getServer());
+                editor.putString("proxy_pass", response.body().getCredentials().getPassword());
+                editor.putString("proxy_user", response.body().getCredentials().getUsername());
+                editor.putInt("proxy_port", response.body().getPort());
+                editor.putString("proxy_secret","");
+                editor.putBoolean("proxy_enabled", true);
+                editor.commit();
+                ConnectionsManager.setProxySettings(true, response.body().getServer(),
+                        response.body().getPort(),response.body().getCredentials().getUsername(),
+                        response.body().getCredentials().getPassword(), "");
+                updateCurrentConnectionState(0);
+
+            }
+            //请求失败时候的回调
+            @Override
+            public void onFailure(Call<Reception> call, Throwable throwable) {
+                Toast.makeText(LaunchActivity.this,"获取链接资料失败",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+    }
+
+
+
     private void openSettings(boolean expanded) {
         Bundle args = new Bundle();
         args.putInt("user_id", UserConfig.getInstance(currentAccount).clientUserId);
@@ -875,6 +925,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         drawerLayoutContainer.closeDrawer(false);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void checkSystemBarColors() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             int color = Theme.getColor(Theme.key_actionBarDefault, null, true);
