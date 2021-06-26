@@ -153,7 +153,7 @@ public class LoginActivity extends BaseFragment {
     private int progressRequestId;
     private boolean[] doneButtonVisible = new boolean[] {true, false};
 
-    private static final int DONE_TYPE_FLOATING = 0;
+    private static final int DONE_TYPE_FLOATING =  0;
     private static final int DONE_TYPE_ACTION = 1;
 
     private final static int done_button = 1;
