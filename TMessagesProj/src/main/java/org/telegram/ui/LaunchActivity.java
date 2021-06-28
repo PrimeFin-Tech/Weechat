@@ -884,10 +884,8 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         RequestInterface request = retrofit.create(RequestInterface.class);
         Call<Reception> call = request.getCall();
         call.enqueue(new Callback<Reception>() {
-            //请求成功时回调
             @Override
             public void onResponse(Call<Reception> call, Response<Reception> response) {
-                SharedPreferences preferences = MessagesController.getGlobalMainSettings();
                 SharedPreferences.Editor editor = MessagesController.getGlobalMainSettings().edit();
                 editor.putString("proxy_ip",response.body().getServer());
                 editor.putString("proxy_pass", response.body().getCredentials().getPassword());
@@ -902,7 +900,6 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
                 updateCurrentConnectionState(0);
 
             }
-            //请求失败时候的回调
             @Override
             public void onFailure(Call<Reception> call, Throwable throwable) {
                 Toast.makeText(LaunchActivity.this,"获取链接资料失败",Toast.LENGTH_LONG).show();

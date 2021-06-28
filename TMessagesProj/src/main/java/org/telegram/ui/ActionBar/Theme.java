@@ -3062,6 +3062,8 @@ public class Theme {
         defaultColors.put(key_dialogSearchIcon, 0xffa1a8af);
         defaultColors.put(key_dialogSearchText, 0xff222222);
         defaultColors.put(key_dialogFloatingButton, 0xff4cb4f5);
+//        defaultColors.put(key_dialogFloatingButton, 0xffe02200);
+
         defaultColors.put(key_dialogFloatingButtonPressed, 0x0f000000);
         defaultColors.put(key_dialogFloatingIcon, 0xffffffff);
         defaultColors.put(key_dialogShadowLine, 0x12000000);
@@ -3171,12 +3173,12 @@ public class Theme {
         defaultColors.put(key_avatar_nameInMessageBlue, 0xff4e92cc);
         defaultColors.put(key_avatar_nameInMessagePink, 0xff4e92cc);
 
-        defaultColors.put(key_actionBarDefault, 0xff527da3);
-        defaultColors.put(key_actionBarDefaultIcon, 0xffffffff);
+        defaultColors.put(key_actionBarDefault, 0xffededed);
+        defaultColors.put(key_actionBarDefaultIcon, 0xfff43d2f);
         defaultColors.put(key_actionBarActionModeDefault, 0xffffffff);
         defaultColors.put(key_actionBarActionModeDefaultTop, 0x10000000);
         defaultColors.put(key_actionBarActionModeDefaultIcon, 0xff676a6f);
-        defaultColors.put(key_actionBarDefaultTitle, 0xffffffff);
+        defaultColors.put(key_actionBarDefaultTitle, 0xff000000);
         defaultColors.put(key_actionBarDefaultSubtitle, 0xffd5e8f7);
         defaultColors.put(key_actionBarDefaultSelector, 0xff406d94);
         defaultColors.put(key_actionBarWhiteSelector, 0x1d000000);
@@ -3246,8 +3248,8 @@ public class Theme {
         defaultColors.put(key_chats_menuCloud, 0xffffffff);
         defaultColors.put(key_chats_menuCloudBackgroundCats, 0xff427ba9);
         defaultColors.put(key_chats_actionIcon, 0xffffffff);
-        defaultColors.put(key_chats_actionBackground, 0xff65a9e0);
-        defaultColors.put(key_chats_actionPressedBackground, 0xff569dd6);
+        defaultColors.put(key_chats_actionBackground, 0xffe02200);
+        defaultColors.put(key_chats_actionPressedBackground, 0xff666dd6);
         defaultColors.put(key_chats_actionUnreadIcon, 0xff737373);
         defaultColors.put(key_chats_actionUnreadBackground, 0xffffffff);
         defaultColors.put(key_chats_actionUnreadPressedBackground, 0xfff2f2f2);
