@@ -1946,9 +1946,10 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             });
             doneItem.setAlpha(0.0f);
             doneItem.setVisibility(View.GONE);
-            proxyDrawable = new ProxyDrawable(context);
-            proxyItem = menu.addItem(2, proxyDrawable);
-            proxyItem.setContentDescription(LocaleController.getString("ProxySettings", R.string.ProxySettings));
+            //隐藏端口的图标
+//            proxyDrawable = new ProxyDrawable(context);
+//            proxyItem = menu.addItem(2, proxyDrawable);
+//            proxyItem.setContentDescription(LocaleController.getString("ProxySettings", R.string.ProxySettings));
 
             passcodeDrawable = new RLottieDrawable(R.raw.passcode_lock_open, "passcode_lock_open", AndroidUtilities.dp(28), AndroidUtilities.dp(28), true, null);
             passcodeDrawable2 = new RLottieDrawable(R.raw.passcode_lock_close, "passcode_lock_close", AndroidUtilities.dp(28), AndroidUtilities.dp(28), true, null);
@@ -3561,7 +3562,6 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
         actionModeViews.add(muteItem);
         actionModeViews.add(deleteItem);
         actionModeViews.add(otherItem);
-
         actionBar.setActionBarMenuOnItemClick(new ActionBar.ActionBarMenuOnItemClick() {
             @Override
             public void onItemClick(int id) {
@@ -3589,6 +3589,7 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
                     SharedConfig.saveConfig();
                     updatePasscodeButton(true);
                 } else if (id == 2) {
+
                     presentFragment(new ProxyListActivity());
                 } else if (id >= 10 && id < 10 + UserConfig.MAX_ACCOUNT_COUNT) {
                     if (getParentActivity() == null) {
