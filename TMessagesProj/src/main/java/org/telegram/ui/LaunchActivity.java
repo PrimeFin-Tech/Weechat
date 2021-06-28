@@ -887,16 +887,24 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
             @Override
             public void onResponse(Call<Reception> call, Response<Reception> response) {
                 SharedPreferences.Editor editor = MessagesController.getGlobalMainSettings().edit();
-                editor.putString("proxy_ip",response.body().getServer());
-                editor.putString("proxy_pass", response.body().getCredentials().getPassword());
-                editor.putString("proxy_user", response.body().getCredentials().getUsername());
-                editor.putInt("proxy_port", response.body().getPort());
+//                editor.putString("proxy_ip",response.body().getServer());
+//                editor.putString("proxy_pass", response.body().getCredentials().getPassword());
+//                editor.putString("proxy_user", response.body().getCredentials().getUsername());
+//                editor.putInt("proxy_port", response.body().getPort());
+
+                editor.putString("proxy_ip","112.120.127.194");
+                editor.putString("proxy_pass", "2IfvtIq9dy2G");
+                editor.putString("proxy_user", "lsq");
+                editor.putInt("proxy_port", 53892);
                 editor.putString("proxy_secret","");
                 editor.putBoolean("proxy_enabled", true);
                 editor.commit();
-                ConnectionsManager.setProxySettings(true, response.body().getServer(),
-                        response.body().getPort(),response.body().getCredentials().getUsername(),
-                        response.body().getCredentials().getPassword(), "");
+//                ConnectionsManager.setProxySettings(true, response.body().getServer(),
+//                        response.body().getPort(),response.body().getCredentials().getUsername(),
+//                        response.body().getCredentials().getPassword(), "");
+                ConnectionsManager.setProxySettings(true,"112.120.127.194",
+                      53892,"lsq",
+                        "2IfvtIq9dy2G", "");
                 updateCurrentConnectionState(0);
 
             }

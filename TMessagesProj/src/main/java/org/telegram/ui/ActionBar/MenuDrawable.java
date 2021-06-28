@@ -116,13 +116,25 @@ public class MenuDrawable extends Drawable {
             canvas.rotate(currentRotation * (reverseAngle ? -225 : 135));
             int color2 = Theme.getColor(Theme.key_actionBarActionModeDefaultIcon);
             paint.setColor(AndroidUtilities.getOffsetColor(color1, color2, currentRotation, 1.0f));
-            canvas.drawLine(-AndroidUtilities.dp(9) + AndroidUtilities.dp(1) * currentRotation, 0, AndroidUtilities.dp(9) - AndroidUtilities.dp(1) * currentRotation, 0, paint);
+            if (currentRotation!=0){
+                canvas.drawLine(-AndroidUtilities.dp(9) + AndroidUtilities.dp(1) * currentRotation, 0, AndroidUtilities.dp(9) - AndroidUtilities.dp(1) * currentRotation, 0, paint);
+
+
+            }else {
+                canvas.drawLine(-AndroidUtilities.dp(9) + AndroidUtilities.dp(1) * currentRotation, 0, AndroidUtilities.dp(9) - AndroidUtilities.dp(1) * currentRotation-10, 0, paint);
+
+            }
             endYDiff = AndroidUtilities.dp(5) * (1 - Math.abs(currentRotation)) - AndroidUtilities.dp(0.5f) * Math.abs(currentRotation);
             endXDiff = AndroidUtilities.dp(9) - AndroidUtilities.dp(9) * Math.abs(currentRotation);
             startYDiff = AndroidUtilities.dp(5) + AndroidUtilities.dp(3.0f) * Math.abs(currentRotation);
             startXDiff = -AndroidUtilities.dp(9) + AndroidUtilities.dp(9) * Math.abs(currentRotation);
             canvas.drawLine(startXDiff, -startYDiff, endXDiff, -endYDiff, paint);
-            canvas.drawLine(startXDiff, startYDiff, endXDiff, endYDiff, paint);
+            if (currentRotation!=0){
+                canvas.drawLine(startXDiff, startYDiff, endXDiff, endYDiff, paint);
+
+            }else {
+                canvas.drawLine(startXDiff, startYDiff, endXDiff-20, endYDiff, paint);
+            }
         }
         canvas.restore();
     }

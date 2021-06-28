@@ -314,7 +314,7 @@ public class DialogCell extends BaseCell {
         super(context);
         parentFragment = fragment;
         Theme.createDialogsResources(context);
-        avatarImage.setRoundRadius(AndroidUtilities.dp(28));
+        avatarImage.setRoundRadius(AndroidUtilities.dp(6));
         thumbImage.setRoundRadius(AndroidUtilities.dp(2));
         useForceThreeLines = forceThreeLines;
         currentAccount = account;
