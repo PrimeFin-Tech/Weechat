@@ -35,13 +35,13 @@ public class Reception {
     }
     public class Credentials {
 
-        private String username;
+        private String userName;
         private String password;
         public void setUsername(String username) {
-            this.username = username;
+            this.userName = username;
         }
         public String getUsername() {
-            return username;
+            return userName;
         }
 
         public void setPassword(String password) {
@@ -54,7 +54,7 @@ public class Reception {
         @Override
         public String toString() {
             return "Credentials{" +
-                    "username='" + username + '\'' +
+                    "username='" + userName + '\'' +
                     ", password='" + password + '\'' +
                     '}';
         }

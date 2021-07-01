@@ -1733,6 +1733,7 @@ public class ThemeActivity extends BaseFragment implements NotificationCenter.No
                     accentsListView.setLayoutManager(accentsLayoutManager);
                     ThemeAccentsListAdapter accentsAdapter = new ThemeAccentsListAdapter(mContext);
                     accentsListView.setAdapter(accentsAdapter);
+                    //设置主题色
                     accentsListView.setOnItemClickListener((view1, position) -> {
                         Theme.ThemeInfo currentTheme = currentType == THEME_TYPE_NIGHT ? Theme.getCurrentNightTheme() : Theme.getCurrentTheme();
                         if (position == accentsAdapter.getItemCount() - 1) {

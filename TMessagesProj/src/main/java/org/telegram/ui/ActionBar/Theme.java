@@ -3062,8 +3062,6 @@ public class Theme {
         defaultColors.put(key_dialogSearchIcon, 0xffa1a8af);
         defaultColors.put(key_dialogSearchText, 0xff222222);
         defaultColors.put(key_dialogFloatingButton, 0xff4cb4f5);
-//        defaultColors.put(key_dialogFloatingButton, 0xffe02200);
-
         defaultColors.put(key_dialogFloatingButtonPressed, 0x0f000000);
         defaultColors.put(key_dialogFloatingIcon, 0xffffffff);
         defaultColors.put(key_dialogShadowLine, 0x12000000);
@@ -3173,8 +3171,8 @@ public class Theme {
         defaultColors.put(key_avatar_nameInMessageBlue, 0xff4e92cc);
         defaultColors.put(key_avatar_nameInMessagePink, 0xff4e92cc);
 
-        defaultColors.put(key_actionBarDefault, 0xffededed);
-        defaultColors.put(key_actionBarDefaultIcon, 0xfff43d2f);
+        defaultColors.put(key_actionBarDefault, 0xff527da3);
+        defaultColors.put(key_actionBarDefaultIcon, 0xffffffff);
         defaultColors.put(key_actionBarActionModeDefault, 0xffffffff);
         defaultColors.put(key_actionBarActionModeDefaultTop, 0x10000000);
         defaultColors.put(key_actionBarActionModeDefaultIcon, 0xff676a6f);
@@ -3248,8 +3246,8 @@ public class Theme {
         defaultColors.put(key_chats_menuCloud, 0xffffffff);
         defaultColors.put(key_chats_menuCloudBackgroundCats, 0xff427ba9);
         defaultColors.put(key_chats_actionIcon, 0xffffffff);
-        defaultColors.put(key_chats_actionBackground, 0xffe02200);
-        defaultColors.put(key_chats_actionPressedBackground, 0xff666dd6);
+        defaultColors.put(key_chats_actionBackground, 0xff65a9e0);
+        defaultColors.put(key_chats_actionPressedBackground, 0xff569dd6);
         defaultColors.put(key_chats_actionUnreadIcon, 0xff737373);
         defaultColors.put(key_chats_actionUnreadBackground, 0xffffffff);
         defaultColors.put(key_chats_actionUnreadPressedBackground, 0xfff2f2f2);
@@ -4085,7 +4083,7 @@ public class Theme {
                 new String[] {         "",  "p-pXcflrmFIBAAAAvXYQk-mCwZU", "JqSUrO0-mFIBAAAAWwTvLzoWGQI", "O-wmAfBPSFADAAAA4zINVfD_bro", "RepJ5uE_SVABAAAAr4d0YhgB850", "-Xc-np9y2VMCAAAARKr0yNNPYW0", "dhf9pceaQVACAAAAbzdVo4SCiZA",         "",         "",         "",         "",         "",         "",         "",         "",         "" },
                 new int[]    {          0,                            180,                            45,                             0,                            45,                           180,                             0,          0,          0,          0,          0,          0,          0,          0,          0,          0 },
                 new int[]    {          0,                             52,                            46,                            57,                            45,                            64,                            52,          0,          0,          0,          0,          0,          0,          0,          0,          0 }
-                );
+        );
         themes.add(currentDayTheme = currentTheme = defaultTheme = themeInfo);
         themesDict.put("Blue", themeInfo);
 
@@ -4106,7 +4104,7 @@ public class Theme {
                 new String[] { "O-wmAfBPSFADAAAA4zINVfD_bro", "RepJ5uE_SVABAAAAr4d0YhgB850", "dk_wwlghOFACAAAAfz9xrxi6euw", "9LW_RcoOSVACAAAAFTk3DTyXN-M", "PllZ-bf_SFAEAAAA8crRfwZiDNg", "-Xc-np9y2VMCAAAARKr0yNNPYW0", "kO4jyq55SFABAAAA0WEpcLfahXk", "CJNyxPMgSVAEAAAAvW9sMwc51cw",         "",         "",         "",         "",         "",         "",         "",         "",         "",         "" },
                 new int[]    {                           225,                            45,                           225,                           135,                            45,                           225,                            45,                             0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0 },
                 new int[]    {                            40,                            40,                            31,                            50,                            25,                            34,                            35,                            50,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0 }
-                );
+        );
         themes.add(themeInfo);
         themesDict.put("Dark Blue", currentNightTheme = themeInfo);
 
@@ -4127,7 +4125,7 @@ public class Theme {
                 new String[] { "MIo6r0qGSFAFAAAAtL8TsDzNX60", "dhf9pceaQVACAAAAbzdVo4SCiZA", "fqv01SQemVIBAAAApND8LDRUhRU", "p-pXcflrmFIBAAAAvXYQk-mCwZU", "JqSUrO0-mFIBAAAAWwTvLzoWGQI", "F5oWoCs7QFACAAAAgf2bD_mg8Bw",         "",         "",         "",         "",         "",         "",         "",         "",         "" },
                 new int[]    {                           315,                           315,                           225,                           315,                             0,                          180 ,          0,          0,          0,          0,          0,          0,          0,          0,          0 },
                 new int[]    {                            50,                            50,                            58,                            47,                            46,                            50,          0,          0,          0,          0,          0,          0,          0,          0,          0 }
-                );
+        );
         themes.add(themeInfo);
         themesDict.put("Arctic Blue", themeInfo);
 
@@ -4148,7 +4146,7 @@ public class Theme {
                 new String[] {         "",         "",         "",         "",         "",         "",         "",         "",         "",         "",         "",         "",         "",         "" },
                 new int[]    {          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0 },
                 new int[]    {          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0,          0 }
-                );
+        );
         themes.add(themeInfo);
         themesDict.put("Day", themeInfo);
 
@@ -4169,7 +4167,7 @@ public class Theme {
                 new String[] { "YIxYGEALQVADAAAAA3QbEH0AowY", "9LW_RcoOSVACAAAAFTk3DTyXN-M", "O-wmAfBPSFADAAAA4zINVfD_bro", "F5oWoCs7QFACAAAAgf2bD_mg8Bw", "-Xc-np9y2VMCAAAARKr0yNNPYW0",         "",         "",         "",         "",         "",         "",         "",         "",         "" },
                 new int[]    {                            45,                           135,                             0,                           180,                             0,          0,          0,          0,          0,          0,          0,          0,          0,          0 },
                 new int[]    {                            34,                            47,                            52,                            48,                            54,          0,          0,          0,          0,          0,          0,          0,          0,          0 }
-                );
+        );
         themes.add(themeInfo);
         themesDict.put("Night", themeInfo);
 

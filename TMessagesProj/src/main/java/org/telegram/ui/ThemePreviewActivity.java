@@ -490,6 +490,7 @@ public class ThemePreviewActivity extends BaseFragment implements DownloadContro
                     accent.patternSlug = selectedPattern != null ? selectedPattern.slug : "";
                     accent.patternIntensity = currentIntensity;
                     accent.patternMotion = isMotion;
+
                     saveAccentWallpaper();
                     NotificationCenter.getGlobalInstance().removeObserver(ThemePreviewActivity.this, NotificationCenter.wallpapersDidLoad);
                     Theme.saveThemeAccents(applyingTheme, true, false, false, true);
@@ -1883,6 +1884,7 @@ public class ThemePreviewActivity extends BaseFragment implements DownloadContro
                 selectedPattern != null && accent.patternMotion != isMotion ||
                 selectedPattern != null && accent.patternIntensity != currentIntensity
         )) {
+
             AlertDialog.Builder builder = new AlertDialog.Builder(getParentActivity());
             builder.setTitle(LocaleController.getString("SaveChangesAlertTitle", R.string.SaveChangesAlertTitle));
             builder.setMessage(LocaleController.getString("SaveChangesAlertText", R.string.SaveChangesAlertText));

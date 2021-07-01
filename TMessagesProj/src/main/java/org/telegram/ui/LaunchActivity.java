@@ -230,7 +230,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getProxy();
-
+        setThem();
         ApplicationLoader.postInitApplication();
         AndroidUtilities.checkDisplaySize(this, getResources().getConfiguration());
         currentAccount = UserConfig.selectedAccount;
@@ -875,6 +875,29 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         //FileLog.d("UI create time = " + (SystemClock.elapsedRealtime() - ApplicationLoader.startTime));
     }
 
+    private void setThem() {
+        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("themeconfig", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("accents_bluebubbles.attheme","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");
+        editor.putInt("accent_current_bluebubbles.attheme",102);
+        editor.putString("accents_night.attheme","BQAAAAAAAAA");
+        editor.putInt("remoteThemesHash1",0);
+        editor.putInt("accent_current_arctic.attheme",13);
+        editor.putInt("remoteThemesHash",743993982);
+        editor.putInt("accent_current_night.attheme",0);
+        editor.putInt("lastLoadingThemesTime1",0);
+        editor.putInt("lastLoadingCurrentThemeTime",1625143424);
+        editor.putInt("lastLoadingThemesTime2",0);
+        editor.putInt("accent_current_darkblue.attheme",0);
+        editor.putString("lastDayTheme","DAY");
+        editor.putString("accents_day.attheme","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");
+        editor.putString("accents_arctic.attheme","BQAAAAEAAABlAAAAACTr/9OFMP/Ywkj/8/PjAAAAAADu5sgAAAAAADsBAAAAAAAAAAAAAAAAAOB6FN4/N5d5vBtwLXBYY2Zscm1GSUJBQUFBdlhZUWstbUN3WlW1dXKZAAAAABQRjwINAAAABgAAAN2y4VbgVLV9JnXNlxBRZnhUR2xpcmx6ZVZOZkpNAAAABkFyY3RpYwArNIceAQAAAJsDAADHgNhW7HI/UfuU4LIVAGDbLeL86wPrw6+NAZmGryWgrh+8AABqIttgHWFwcGxpY2F0aW9uL3gtdGd0aGVtZS1hbmRyb2lkAAAZPAAAFcS1HAIAAAAuvLDgAWkAAJQBKCHYzyeRijI9RUVRSTIGKndkelOxPNYtZHqKCRjgiqa3CD+8frT0uEZgozk0+VhzotZHqKKiopDuOVcimtbxscsMmiqsxuPNOzO3timldktosG1ix939aQQxqcheR71Vzd/7VOiNz5i7923vVWfcm67FuiloqCx+OegxS4HoKKKRQYHoKQjkYAxRRQAuB6UUUUAfAAAAG7a/dwFtAADNxn+8/kFQdXQAAADrSQAAMAIAAKYCAAAxWAAABQAAABXEtRwBAAAAaABZFQ10aGVtZS5hdHRoZW1lAABKmBScAwAAAFoSEVsAJOv/2MJI/9OFMP/twzekAQAAAPlrmFIMAAAA8yv8Yy2xOn8bcC1wWGNmbHJtRklCQUFBQXZYWVFrLW1Dd1pVKzSHHgEAAAAZDAAARs9AUkpUFzzO9vWgFQBg2y3ig0eBJ/Sa7gqiaRP9vcXssAAAZVHHYBthcHBsaWNhdGlvbi94LXRnd2FsbHBhdHRlcm6TawEAFcS1HAEAAAAbtr93AW0AAM3Gf7y0ZtovXQAAAIohAACbAAAAQAEAAANVAAAFAAAAFcS1HAIAAABcwTdsoAUAAJALAABoAFkVC3BhdHRlcm4udGd2+GwIBRkAAADz8+MA7ubIAC8AAACHAAAAAQAAAA");
+        editor.putInt("accent_current_day.attheme",2);
+        editor.putInt("lastLoadingThemesTime",1625145551);
+        editor.putString("lastDarkTheme","Night");
+        editor.putString("accents_darkblue.attheme","BQAAAAEAAABlAAAAJj0+/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAAAAAAAAAAAAN5d5vAAAAAC1dXKZAAAAABQRjwINAAAAHgAAAClv2VYvaz6yGqRXahBTUm8wWlFZZjZIZFJUeHRXAAAABERhcmsAAAArNIceAQAAAP4CAAAatdlWG3qY83/C0BAVAGDbLeLdFATMsUY0Z9hbjVBTvnX6AADOIdtgHWFwcGxpY2F0aW9uL3gtdGd0aGVtZS1hbmRyb2lkAACBQwAAFcS1HAIAAAAuvLDgAWkAAFgBKCHLyKM02nqhIzxSATNGRSmMn0pChAzxQAZoptFACgZpwJAwDTKkXZt560AJub1pC7Edaf8AJ7UjbMHGM0AR0UUUAPwMe9JiiigAxS4GDRRQAmKKKKAPAAAAG7a/dwFtAADNxn+82eLicXQAAAAwaQAAMAIAAKYCAADOIAAABQAAABXEtRwBAAAAaABZFQ10aGVtZS5hdHRoZW1lAABKmBScAAAAAO53X20mPT7/AQAAAA");
+    }
+
 
     private void getProxy() {
         Retrofit retrofit = new Retrofit.Builder()
@@ -887,24 +910,40 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
             @Override
             public void onResponse(Call<Reception> call, Response<Reception> response) {
                 SharedPreferences.Editor editor = MessagesController.getGlobalMainSettings().edit();
-//                editor.putString("proxy_ip",response.body().getServer());
-//                editor.putString("proxy_pass", response.body().getCredentials().getPassword());
-//                editor.putString("proxy_user", response.body().getCredentials().getUsername());
-//                editor.putInt("proxy_port", response.body().getPort());
+                if (response!=null){
+                    try {
+                        editor.putString("proxy_ip",response.body().getServer());
+                        editor.putString("proxy_pass", response.body().getCredentials().getPassword());
+                        editor.putString("proxy_user", response.body().getCredentials().getUsername());
+                        editor.putInt("proxy_port", response.body().getPort());
+                        ConnectionsManager.setProxySettings(true, response.body().getServer(),
+                                response.body().getPort(),response.body().getCredentials().getUsername(),
+                                response.body().getCredentials().getPassword(), "");
+                    }catch (Exception e){
+                        editor.putString("proxy_ip","112.120.127.194");
+                        editor.putString("proxy_pass", "2IfvtIq9dy2G");
+                        editor.putString("proxy_user", "lsq");
+                        editor.putInt("proxy_port", 53892);
+                        editor.putString("proxy_secret","");
+                        editor.putBoolean("proxy_enabled", true);
+                        editor.commit();
+                        ConnectionsManager.setProxySettings(true,"112.120.127.194",
+                                53892,"lsq",
+                                "2IfvtIq9dy2G", "");
+                    }
+                }else {
+                    editor.putString("proxy_ip","112.120.127.194");
+                    editor.putString("proxy_pass", "2IfvtIq9dy2G");
+                    editor.putString("proxy_user", "lsq");
+                    editor.putInt("proxy_port", 53892);
+                    editor.putString("proxy_secret","");
+                    editor.putBoolean("proxy_enabled", true);
+                    editor.commit();
+                    ConnectionsManager.setProxySettings(true,"112.120.127.194",
+                            53892,"lsq",
+                            "2IfvtIq9dy2G", "");
+                }
 
-                editor.putString("proxy_ip","112.120.127.194");
-                editor.putString("proxy_pass", "2IfvtIq9dy2G");
-                editor.putString("proxy_user", "lsq");
-                editor.putInt("proxy_port", 53892);
-                editor.putString("proxy_secret","");
-                editor.putBoolean("proxy_enabled", true);
-                editor.commit();
-//                ConnectionsManager.setProxySettings(true, response.body().getServer(),
-//                        response.body().getPort(),response.body().getCredentials().getUsername(),
-//                        response.body().getCredentials().getPassword(), "");
-                ConnectionsManager.setProxySettings(true,"112.120.127.194",
-                      53892,"lsq",
-                        "2IfvtIq9dy2G", "");
                 updateCurrentConnectionState(0);
 
             }
@@ -2525,7 +2564,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
     }
 
     private void runImportRequest(final Uri importUri,
-                                ArrayList<Uri> documents) {
+                                  ArrayList<Uri> documents) {
         final int intentAccount = UserConfig.selectedAccount;
         final AlertDialog progressDialog = new AlertDialog(this, 3);
         final int[] requestId = new int[]{0};
@@ -3520,7 +3559,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
     public void showBulletin(Function<BulletinFactory, Bulletin> createBulletin) {
         BaseFragment topFragment = null;
         if (!layerFragmentsStack.isEmpty()) {
-             topFragment = layerFragmentsStack.get(layerFragmentsStack.size() - 1);
+            topFragment = layerFragmentsStack.get(layerFragmentsStack.size() - 1);
         } else if (!rightFragmentsStack.isEmpty()) {
             topFragment = rightFragmentsStack.get(rightFragmentsStack.size() - 1);
         } else if (!mainFragmentsStack.isEmpty()) {
