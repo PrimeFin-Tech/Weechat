@@ -4234,8 +4234,10 @@ public class Theme {
 
             theme = preferences.getString("nighttheme", null);
             if ("Default".equals(theme)) {
-                applyingTheme = themesDict.get("Blue");
-                applyingTheme.currentAccentId = DEFALT_THEME_ACCENT_ID;
+//                applyingTheme = themesDict.get("Blue");
+//                applyingTheme.currentAccentId = DEFALT_THEME_ACCENT_ID;
+                applyingTheme = themesDict.get("Day");
+                applyingTheme.currentAccentId = 157;
             } else if ("Dark".equals(theme)) {
                 currentNightTheme = themeDarkBlue;
                 themeDarkBlue.currentAccentId = 9;

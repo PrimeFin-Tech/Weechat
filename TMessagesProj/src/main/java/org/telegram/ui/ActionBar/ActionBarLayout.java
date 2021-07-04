@@ -1669,6 +1669,15 @@ public class ActionBarLayout extends FrameLayout {
     }
 
     public void animateThemedValues(Theme.ThemeInfo theme, int accentId, boolean nightTheme, boolean instant) {
+//       theme.assetName="day.attheme";
+//       theme.name="day";
+//        theme.accentBaseColor=-13464881;
+//        theme.currentAccentId=102;
+//        theme.previewBackgroundGradientColor=0;
+//        theme.previewParsed=false;
+//        accentId=102;
+//        nightTheme=false;
+//        instant=false;
         if (transitionAnimationInProgress || startedTracking) {
             animateThemeAfterAnimation = true;
             animateSetThemeAfterAnimation = theme;
@@ -1703,6 +1712,7 @@ public class ActionBarLayout extends FrameLayout {
                     addStartDescriptions(dialog.getThemeDescriptions());
                 }
                 if (i == 0) {
+
                     if (accentId != -1) {
                         theme.setCurrentAccentId(accentId);
                         Theme.saveThemeAccents(theme, true, false, true, false);
