@@ -136,7 +136,7 @@ public class DrawerProfileCell extends FrameLayout {
         sunDrawable.setLayerColor("Path 5.**", color);
         sunDrawable.commitApplyLayerColors();
         darkThemeView.setScaleType(ImageView.ScaleType.CENTER);
-        darkThemeView.setAnimation(sunDrawable);
+//        darkThemeView.setAnimation(sunDrawable);
         if (Build.VERSION.SDK_INT >= 21) {
             darkThemeView.setBackgroundDrawable(Theme.createSelectorDrawable(darkThemeBackgroundColor = Theme.getColor(Theme.key_listSelector), 1, AndroidUtilities.dp(17)));
             Theme.setRippleDrawableForceSoftware((RippleDrawable) darkThemeView.getBackground());
@@ -181,7 +181,8 @@ public class DrawerProfileCell extends FrameLayout {
             }
             switchTheme(themeInfo, toDark);
         });
-        addView(darkThemeView, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.BOTTOM, 0, 0, 6, 90));
+        darkThemeView.setOnClickListener(null);
+//        addView(darkThemeView, LayoutHelper.createFrame(48, 48, Gravity.RIGHT | Gravity.BOTTOM, 0, 0, 6, 90));
 
         if (Theme.getEventType() == 0) {
             snowflakesEffect = new SnowflakesEffect();

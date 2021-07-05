@@ -1672,10 +1672,10 @@ public class ActionBarLayout extends FrameLayout {
 //       theme.assetName="day.attheme";
 //       theme.name="day";
 //        theme.accentBaseColor=-13464881;
-//        theme.currentAccentId=102;
+//        theme.currentAccentId=110;
 //        theme.previewBackgroundGradientColor=0;
 //        theme.previewParsed=false;
-//        accentId=102;
+//        accentId=110;
 //        nightTheme=false;
 //        instant=false;
         if (transitionAnimationInProgress || startedTracking) {

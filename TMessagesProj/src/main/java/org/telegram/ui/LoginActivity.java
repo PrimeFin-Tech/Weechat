@@ -432,7 +432,7 @@ public class LoginActivity extends BaseFragment {
         restoringState = false;
 
         actionBar.setTitle(views[currentViewNum].getHeaderName());
-
+        Theme.refreshThemeColors();
         return fragmentView;
     }
 

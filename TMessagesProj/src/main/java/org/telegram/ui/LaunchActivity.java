@@ -872,6 +872,11 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
         }
         MediaController.getInstance().setBaseActivity(this, true);
         AndroidUtilities.startAppCenter(this);
+
+//        Theme.ThemeInfo  applyingTheme = Theme.getCurrentTheme();
+//        Theme.ThemeAccent accent = applyingTheme.getAccent(false);
+//        accent.accentColor=-2076644;
+        Theme.refreshThemeColors();
         //FileLog.d("UI create time = " + (SystemClock.elapsedRealtime() - ApplicationLoader.startTime));
     }
 

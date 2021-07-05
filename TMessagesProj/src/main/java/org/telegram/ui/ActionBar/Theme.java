@@ -4217,37 +4217,26 @@ public class Theme {
             final ThemeInfo themeDarkBlue = themesDict.get("Dark Blue");
 
             String theme = preferences.getString("theme", null);
-            if ("Default".equals(theme)) {
-                applyingTheme = themesDict.get("Blue");
-                applyingTheme.currentAccentId = DEFALT_THEME_ACCENT_ID;
-            } else if ("Dark".equals(theme)) {
-                applyingTheme = themeDarkBlue;
-                applyingTheme.currentAccentId = 9;
-            } else if (theme != null) {
-                applyingTheme = themesDict.get(theme);
-                if (applyingTheme != null && !themeConfig.contains("lastDayTheme")) {
-                    SharedPreferences.Editor editor = themeConfig.edit();
-                    editor.putString("lastDayTheme", applyingTheme.getKey());
-                    editor.commit();
-                }
-            }
+            applyingTheme = themesDict.get("Day");
+            applyingTheme.currentAccentId = 102;
 
             theme = preferences.getString("nighttheme", null);
-            if ("Default".equals(theme)) {
+//            if ("Default".equals(theme)) {
 //                applyingTheme = themesDict.get("Blue");
 //                applyingTheme.currentAccentId = DEFALT_THEME_ACCENT_ID;
-                applyingTheme = themesDict.get("Day");
-                applyingTheme.currentAccentId = 157;
-            } else if ("Dark".equals(theme)) {
-                currentNightTheme = themeDarkBlue;
-                themeDarkBlue.currentAccentId = 9;
-            } else if (theme != null) {
-                ThemeInfo t = themesDict.get(theme);
-                if (t != null) {
-                    currentNightTheme = t;
-                }
-            }
-
+////                applyingTheme = themesDict.get("Day");
+////                applyingTheme.currentAccentId = 110;
+//            } else if ("Dark".equals(theme)) {
+//                currentNightTheme = themeDarkBlue;
+//                themeDarkBlue.currentAccentId = 9;
+//            } else if (theme != null) {
+//                ThemeInfo t = themesDict.get(theme);
+//                if (t != null) {
+//                    currentNightTheme = t;
+//                }
+//            }
+            applyingTheme = themesDict.get("Day");
+            applyingTheme.currentAccentId = 102;
             if (currentNightTheme != null && !themeConfig.contains("lastDarkTheme")) {
                 SharedPreferences.Editor editor = themeConfig.edit();
                 editor.putString("lastDarkTheme", currentNightTheme.getKey());
@@ -5393,6 +5382,7 @@ public class Theme {
         currentColors.putAll(currentColorsNoAccent);
         shouldDrawGradientIcons = true;
         ThemeAccent accent = currentTheme.getAccent(false);
+        accent.accentColor=-1229540;
         if (accent != null) {
             shouldDrawGradientIcons = accent.fillAccentColors(currentColorsNoAccent, currentColors);
         }
