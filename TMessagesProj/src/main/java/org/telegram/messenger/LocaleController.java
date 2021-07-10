@@ -630,45 +630,45 @@ public class LocaleController {
     }
 
     private void saveOtherLanguages() {
-        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("langconfig", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int a = 0; a < otherLanguages.size(); a++) {
-            LocaleInfo localeInfo = otherLanguages.get(a);
-            String loc = localeInfo.getSaveString();
-            if (loc != null) {
-                if (stringBuilder.length() != 0) {
-                    stringBuilder.append("&");
-                }
-                stringBuilder.append(loc);
-            }
-        }
-        editor.putString("locales", stringBuilder.toString());
-        stringBuilder.setLength(0);
-        for (int a = 0; a < remoteLanguages.size(); a++) {
-            LocaleInfo localeInfo = remoteLanguages.get(a);
-            String loc = localeInfo.getSaveString();
-            if (loc != null) {
-                if (stringBuilder.length() != 0) {
-                    stringBuilder.append("&");
-                }
-                stringBuilder.append(loc);
-            }
-        }
-        editor.putString("remote", stringBuilder.toString());
-        stringBuilder.setLength(0);
-        for (int a = 0; a < unofficialLanguages.size(); a++) {
-            LocaleInfo localeInfo = unofficialLanguages.get(a);
-            String loc = localeInfo.getSaveString();
-            if (loc != null) {
-                if (stringBuilder.length() != 0) {
-                    stringBuilder.append("&");
-                }
-                stringBuilder.append(loc);
-            }
-        }
-        editor.putString("unofficial", stringBuilder.toString());
-        editor.commit();
+//        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("langconfig", Activity.MODE_PRIVATE);
+//        SharedPreferences.Editor editor = preferences.edit();
+//        StringBuilder stringBuilder = new StringBuilder();
+//        for (int a = 0; a < otherLanguages.size(); a++) {
+//            LocaleInfo localeInfo = otherLanguages.get(a);
+//            String loc = localeInfo.getSaveString();
+//            if (loc != null) {
+//                if (stringBuilder.length() != 0) {
+//                    stringBuilder.append("&");
+//                }
+//                stringBuilder.append(loc);
+//            }
+//        }
+//        editor.putString("locales", stringBuilder.toString());
+//        stringBuilder.setLength(0);
+//        for (int a = 0; a < remoteLanguages.size(); a++) {
+//            LocaleInfo localeInfo = remoteLanguages.get(a);
+//            String loc = localeInfo.getSaveString();
+//            if (loc != null) {
+//                if (stringBuilder.length() != 0) {
+//                    stringBuilder.append("&");
+//                }
+//                stringBuilder.append(loc);
+//            }
+//        }
+//        editor.putString("remote", stringBuilder.toString());
+//        stringBuilder.setLength(0);
+//        for (int a = 0; a < unofficialLanguages.size(); a++) {
+//            LocaleInfo localeInfo = unofficialLanguages.get(a);
+//            String loc = localeInfo.getSaveString();
+//            if (loc != null) {
+//                if (stringBuilder.length() != 0) {
+//                    stringBuilder.append("&");
+//                }
+//                stringBuilder.append(loc);
+//            }
+//        }
+//        editor.putString("unofficial", stringBuilder.toString());
+//        editor.commit();
     }
 
     public boolean deleteLanguage(LocaleInfo localeInfo, int currentAccount) {
@@ -702,43 +702,43 @@ public class LocaleController {
     }
 
     private void loadOtherLanguages() {
-        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("langconfig", Activity.MODE_PRIVATE);
-        String locales = preferences.getString("locales", null);
-        if (!TextUtils.isEmpty(locales)) {
-            String[] localesArr = locales.split("&");
-            for (String locale : localesArr) {
-                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
-                if (localeInfo != null) {
-                    otherLanguages.add(localeInfo);
-                }
-            }
-        }
-        locales = preferences.getString("remote", null);
-        if (!TextUtils.isEmpty(locales)) {
-            String[] localesArr = locales.split("&");
-            for (String locale : localesArr) {
-                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
-                localeInfo.shortName = localeInfo.shortName.replace("-", "_");
-                if (remoteLanguagesDict.containsKey(localeInfo.getKey())) {
-                    continue;
-                }
-                if (localeInfo != null) {
-                    remoteLanguages.add(localeInfo);
-                    remoteLanguagesDict.put(localeInfo.getKey(), localeInfo);
-                }
-            }
-        }
-        locales = preferences.getString("unofficial", null);
-        if (!TextUtils.isEmpty(locales)) {
-            String[] localesArr = locales.split("&");
-            for (String locale : localesArr) {
-                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
-                localeInfo.shortName = localeInfo.shortName.replace("-", "_");
-                if (localeInfo != null) {
-                    unofficialLanguages.add(localeInfo);
-                }
-            }
-        }
+//        SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("langconfig", Activity.MODE_PRIVATE);
+//        String locales = preferences.getString("locales", null);
+//        if (!TextUtils.isEmpty(locales)) {
+//            String[] localesArr = locales.split("&");
+//            for (String locale : localesArr) {
+//                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
+//                if (localeInfo != null) {
+//                    otherLanguages.add(localeInfo);
+//                }
+//            }
+//        }
+//        locales = preferences.getString("remote", null);
+//        if (!TextUtils.isEmpty(locales)) {
+//            String[] localesArr = locales.split("&");
+//            for (String locale : localesArr) {
+//                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
+//                localeInfo.shortName = localeInfo.shortName.replace("-", "_");
+//                if (remoteLanguagesDict.containsKey(localeInfo.getKey())) {
+//                    continue;
+//                }
+//                if (localeInfo != null) {
+//                    remoteLanguages.add(localeInfo);
+//                    remoteLanguagesDict.put(localeInfo.getKey(), localeInfo);
+//                }
+//            }
+//        }
+//        locales = preferences.getString("unofficial", null);
+//        if (!TextUtils.isEmpty(locales)) {
+//            String[] localesArr = locales.split("&");
+//            for (String locale : localesArr) {
+//                LocaleInfo localeInfo = LocaleInfo.createWithString(locale);
+//                localeInfo.shortName = localeInfo.shortName.replace("-", "_");
+//                if (localeInfo != null) {
+//                    unofficialLanguages.add(localeInfo);
+//                }
+//            }
+//        }
     }
 
     private HashMap<String, String> getLocaleFileStrings(File file) {

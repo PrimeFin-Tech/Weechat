@@ -5382,7 +5382,7 @@ public class Theme {
         currentColors.putAll(currentColorsNoAccent);
         shouldDrawGradientIcons = true;
         ThemeAccent accent = currentTheme.getAccent(false);
-        accent.accentColor=-1229540;
+        accent.accentColor=-2088448;
         if (accent != null) {
             shouldDrawGradientIcons = accent.fillAccentColors(currentColorsNoAccent, currentColors);
         }

@@ -289,7 +289,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
             savedIcon = R.drawable.menu_saved;
             settingsIcon = R.drawable.menu_settings;
             inviteIcon = R.drawable.menu_invite;
-            helpIcon = R.drawable.menu_help;
+//            helpIcon = R.drawable.menu_help;
             peopleNearbyIcon = R.drawable.menu_nearby;
         }
         items.add(new Item(2, LocaleController.getString("NewGroup", R.string.NewGroup), newGroupIcon));
@@ -304,7 +304,7 @@ public class DrawerLayoutAdapter extends RecyclerListView.SelectionAdapter {
         items.add(new Item(8, LocaleController.getString("Settings", R.string.Settings), settingsIcon));
         items.add(null); // divider
         items.add(new Item(7, LocaleController.getString("InviteFriends", R.string.InviteFriends), inviteIcon));
-        items.add(new Item(13, LocaleController.getString("TelegramFeatures", R.string.TelegramFeatures), helpIcon));
+//        items.add(new Item(13, LocaleController.getString("TelegramFeatures", R.string.TelegramFeatures), helpIcon));
     }
 
     public int getId(int position) {

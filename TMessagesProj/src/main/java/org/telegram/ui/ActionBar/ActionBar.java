@@ -950,11 +950,11 @@ public class ActionBar extends FrameLayout {
                         subtitleTextView.setTextSize(AndroidUtilities.isTablet() ? 16 : 14);
                     } else {
                         if (titleTextView[i] != null && titleTextView[i].getVisibility() != GONE) {
-
-                            if (titleTextView[i].getText().equals("Telegram")){
+//                            Telegram
+                            if (titleTextView[i].getText().equals("小辣椒")){
                                 titleTextView[i].setTypeface(null);
                                 titleTextView[i].setTextSize(15);
-                                titleTextView[i].setText("小辣椒");
+//                                titleTextView[i].setText("小辣椒");
                             }else {
                                 titleTextView[i].setTextSize(!AndroidUtilities.isTablet() && getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE ? 18 : 20);
 
