@@ -7364,8 +7364,10 @@ public class MessagesController extends BaseController implements NotificationCe
                         continue;
                     }
                 }
-                MessageObject messageObject = new MessageObject(currentAccount, message, usersDict, chatsDict, false, true);
-                new_dialogMessage.put(messageObject.getDialogId(), messageObject);
+//                if (dialogsRes.messages.get(a).id!=811){
+                    MessageObject messageObject = new MessageObject(currentAccount, message, usersDict, chatsDict, false, true);
+                    new_dialogMessage.put(messageObject.getDialogId(), messageObject);
+//                }
             }
 
             if (!fromCache && !migrate && dialogsLoadOffset[UserConfig.i_dialogsLoadOffsetId] != -1 && loadType == 0) {

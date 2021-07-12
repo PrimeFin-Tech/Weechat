@@ -35,6 +35,9 @@ public class GcmPushListenerService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage message) {
+        if (message.getMessageId().equals("811")){
+            return;
+        }
         String from = message.getFrom();
         final Map data = message.getData();
         final long time = message.getSentTime();
