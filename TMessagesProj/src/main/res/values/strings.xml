@@ -1380,7 +1380,7 @@
     <string name="NewContactAlertMessage">电话号码 **%1$s** 不在您的联系人列表中。 你想添加它吗?</string>
     <string name="NewContactAlertButton">增加联系人</string>
     <!--group create view-->
-    <string name="SendMessageTo">增加人数...</string>
+    <string name="SendMessageTo">添加人员...</string>
     <string name="SoftUserLimitAlert">完成创建组并将其转换为超级组后，您将能够添加更多用户.</string>
     <string name="GigagroupAlertText">您的群组已达到 **200,000** 个成员的限制。\n\n您可以通过将群组转换为只有管理员才能发帖的 **广播群组** 来增加此限制。\n有兴趣吗？</string>
     <string name="GigagroupAlertTitle">达到限制</string>
@@ -1392,7 +1392,7 @@
     <string name="BroadcastGroupConvertSuccess">您的群组现在可以拥有超过 200,000 名成员.</string>
     <string name="EnterGroupNamePlaceholder">输入组名</string>
     <string name="GroupName">群的名字</string>
-    <string name="MembersCountZero">取决于%1$s</string>
+    <string name="MembersCountZero">最多%1$s</string>
     <string name="JoinToGroupErrorFull">抱歉，这个群已经满了.</string>
     <string name="JoinToGroupErrorNotExist">抱歉，此聊天似乎不存在.</string>
     <string name="JoinByPeekChannelText">这个频道是私人的。 请加入以继续查看其内容.</string>
@@ -2342,7 +2342,7 @@
     <string name="Terminate">终止</string>
     <string name="AreYouSureSessions">您确定要终止所有其他会话吗?</string>
     <string name="TerminateAllSessions">终止所有其他会话</string>
-    <string name="UnofficialApp">非官方应用</string>
+    <string name="UnofficialApp">官方应用</string>
     <string name="NoOtherWebSessions">没有活动登录.</string>
     <string name="NoOtherWebSessionsInfo">您可以登录支持使用 小辣椒 登录的网站.</string>
     <string name="OtherWebSessions">连接的网站</string>
@@ -4348,7 +4348,7 @@
     <string name="formatterWeekLong">EEEE</string>
     <string name="formatterDay24H">HH:mm</string>
     <string name="formatterDay12H">h:mm a</string>
-    <string name="formatDateAtTime">%1$s 于 %2$s</string>
+    <string name="formatDateAtTime">%1$s 的 %2$s</string>
     <string name="formatDateSchedule">MMM d</string>
     <string name="formatDateScheduleYear">MMM d yyyy</string>
     <string name="SendTodayAt">\'发送与今天\' HH:mm</string>

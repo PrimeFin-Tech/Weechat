@@ -137,7 +137,6 @@ public class FastDatePrinter implements DatePrinter, Serializable {
         mPattern = pattern;
         mTimeZone = timeZone;
         mLocale = locale;
-
         init();
     }
 

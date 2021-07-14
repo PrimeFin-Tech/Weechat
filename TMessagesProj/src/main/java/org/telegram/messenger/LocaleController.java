@@ -1427,7 +1427,46 @@ public class LocaleController {
     }
 
     public static String formatDateChat(long date) {
-        return formatDateChat(date, false);
+        String time = formatDateChat(date, false);
+        if (time.toString().contains("January")){
+            return time= time.toString().replace("January","1月");
+        }else if (time.toString().contains("February")){
+            return time= time.toString().replace("February","2月");
+
+        }else if (time.toString().contains("March")){
+            return time= time.toString().replace("March","3月");
+
+        }else if (time.toString().contains("April")){
+            return time= time.toString().replace("April","4月");
+
+        }else if (time.toString().contains("May")){
+            return time= time.toString().replace("May","5月");
+
+        }else if (time.toString().contains("June")){
+            return time= time.toString().replace("June","6月");
+
+        }else if (time.toString().contains("July")){
+            return  time= time.toString().replace("July","7月");
+
+        }else if (time.toString().contains("August")){
+            return time= time.toString().replace("August","8月");
+
+        }else if (time.toString().contains("September")){
+            return time= time.toString().replace("September","9月");
+
+        }else if (time.toString().contains("October")){
+            return time= time.toString().replace("October","10月");
+
+        }else if (time.toString().contains("November")){
+            return time= time.toString().replace("November","11月");
+
+        }else if (time.toString().contains("December")){
+            return time= time.toString().replace("December","12月");
+
+        }else {
+            return formatDateChat(date, false);
+
+        }
     }
 
     public static String formatDateChat(long date, boolean checkYear) {

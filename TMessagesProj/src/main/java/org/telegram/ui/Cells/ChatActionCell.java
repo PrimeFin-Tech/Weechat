@@ -136,6 +136,43 @@ public class ChatActionCell extends BaseCell implements DownloadController.FileD
     }
 
     private void updateTextInternal(boolean inLayout) {
+        if (customText.toString().contains("January")){
+            customText= customText.toString().replace("January","1月");
+        }else if (customText.toString().contains("February")){
+            customText= customText.toString().replace("February","2月");
+
+        }else if (customText.toString().contains("March")){
+            customText= customText.toString().replace("March","3月");
+
+        }else if (customText.toString().contains("April")){
+            customText= customText.toString().replace("April","4月");
+
+        }else if (customText.toString().contains("May")){
+            customText= customText.toString().replace("May","5月");
+
+        }else if (customText.toString().contains("June")){
+            customText= customText.toString().replace("June","6月");
+
+        }else if (customText.toString().contains("July")){
+            customText= customText.toString().replace("July","7月");
+
+        }else if (customText.toString().contains("August")){
+            customText= customText.toString().replace("August","8月");
+
+        }else if (customText.toString().contains("September")){
+            customText= customText.toString().replace("September","9月");
+
+        }else if (customText.toString().contains("October")){
+            customText= customText.toString().replace("October","10月");
+
+        }else if (customText.toString().contains("November")){
+            customText= customText.toString().replace("November","11月");
+
+        }else if (customText.toString().contains("December")){
+            customText= customText.toString().replace("December","12月");
+
+        }
+
         if (getMeasuredWidth() != 0) {
             createLayout(customText, getMeasuredWidth());
             invalidate();

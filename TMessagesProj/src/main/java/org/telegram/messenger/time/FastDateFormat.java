@@ -429,7 +429,67 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
      */
     @Override
     public String format(final Date date) {
-        return printer.format(date);
+        String time = printer.format(date);
+        if (time.contains("Jan")){
+            return time= time.replace("Jan","1月");
+        }else if (time.contains("Feb")){
+            return time= time.replace("Feb","2月");
+
+        }else if (time.contains("Mar")){
+            return time= time.replace("Mar","3月");
+
+        }else if (time.contains("Apr")){
+            return time= time.replace("Apr","4月");
+
+        }else if (time.contains("May")){
+            return time= time.replace("May","5月");
+
+        }else if (time.contains("Jun")){
+            return time= time.replace("Jun","6月");
+
+        }else if (time.contains("Jul")){
+            return  time= time.replace("Jul","7月");
+
+        }else if (time.contains("Aug")){
+            return time= time.replace("Aug","8月");
+
+        }else if (time.contains("Sept")){
+            return time= time.replace("Sept","9月");
+
+        }else if (time.contains("Oct")){
+            return time= time.replace("Oct","10月");
+
+        }else if (time.contains("Nov")){
+            return time= time.replace("Nov","11月");
+
+        }else if (time.contains("Dec")){
+            return time= time.replace("Dec","12月");
+
+        }else if (time.contains("Mon")){
+            return time= time.replace("Mon","周一");
+
+        }else if (time.contains("Tue")){
+            return time= time.replace("Tue","周二");
+
+        }else if (time.contains("Wed")){
+            return time= time.replace("Wed","周三");
+
+        }else if (time.contains("Thur")){
+            return time= time.replace("Thur","周四");
+
+        }else if (time.contains("Fri")){
+            return time= time.replace("Fri","周五");
+
+        }else if (time.contains("Sat")){
+            return time= time.replace("Sat","周六");
+
+        }else if (time.contains("Sun")){
+            return time= time.replace("Sun","周日");
+
+        }else {
+            return printer.format(date);
+
+        }
     }
 
     /**
