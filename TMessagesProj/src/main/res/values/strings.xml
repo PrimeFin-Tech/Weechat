@@ -2482,7 +2482,7 @@
     <string name="SharedFilesTab2">文件</string>
     <string name="SharedMediaTab2">媒体</string>
     <string name="SharedMediaTabFull2">共享媒体</string>
-    <string name="SharedGroupsTab2">裙子</string>
+    <string name="SharedGroupsTab2">群组</string>
     <string name="SharedLinksTab2">链接</string>
     <string name="SharedMusicTab2">音乐</string>
     <string name="SharedVoiceTab2">语音</string>
@@ -3193,9 +3193,9 @@
     <string name="SecretChatContextBotAlert">请注意，内联机器人由第三方开发人员提供。 为了让机器人工作，您在机器人用户名后键入的符号会发送给相应的开发人员.</string>
     <string name="EditMessageError">抱歉，您无法编辑此消息.</string>
     <string name="AllowReadCall">请允许 小辣椒 接听电话，以便我们自动为您发送短信.</string>
-    <string name="AllowReadCallAndLog">请允许 小辣椒 接听电话并阅读通话记录，以便我们自动为您输入代码.</string>
-    <string name="AllowReadCallLog">请允许 小辣椒 读取通话记录，以便我们自动为您输入代码.</string>
-    <string name="AllowFillNumber">请允许 小辣椒 接听电话，以便我们自动确认您的电话号码.</string>
+    <string name="AllowReadCallAndLog">请允许 小辣椒 接听电话，以便我们自动为您输入验证码.</string>
+    <string name="AllowReadCallLog">请允许 小辣椒 读取通话记录，以便我们自动为您输入验证码.</string>
+    <string name="AllowFillNumber">请允许 小辣椒 接听电话，以便我们自动确认您的电话号码发送短信.</string>
     <string name="UserRestricted">抱歉，您无权执行此操作.</string>
     <string name="YouBlockedUser">抱歉，您无法将此用户或聊天机器人添加到群组中，因为您已阻止他们。 请取消阻止以继续.</string>
     <string name="JoinGroup">加入群</string>

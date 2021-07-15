@@ -5342,7 +5342,7 @@ public class ProfileActivity extends BaseFragment implements NotificationCenter.
                     filtersRow = rowCount++;
                 }
                 devicesRow = rowCount++;
-                languageRow = rowCount++;
+//                languageRow = rowCount++;
                 devicesSectionRow = rowCount++;
 //                helpHeaderRow = rowCount++;
 //                questionRow = rowCount++;

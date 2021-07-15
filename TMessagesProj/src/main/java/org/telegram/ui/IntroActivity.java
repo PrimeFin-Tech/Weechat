@@ -281,7 +281,10 @@ public class IntroActivity extends Activity implements NotificationCenter.Notifi
             frameLayout3.addView(frameLayout4, LayoutHelper.createFrame(498, 528, Gravity.CENTER));
         } else {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-            setContentView(scrollView);
+            setContentView(R.layout.activity_welcome_page);
+            findViewById(R.id.tvNext).setOnClickListener(v->{
+                startMessagingButton.performClick();
+            });
         }
 
         LocaleController.getInstance().loadRemoteLanguages(currentAccount);
