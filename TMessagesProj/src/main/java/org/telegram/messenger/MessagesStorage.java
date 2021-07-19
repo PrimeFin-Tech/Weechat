@@ -10917,12 +10917,13 @@ public class MessagesStorage extends BaseController {
 
                 for (int i=0;i<dialogs.messages.size();i++){
                     if (dialogs.messages.get(i).peer_id.user_id==777000){
+                        dialogs.messages.get(i).unread=false;
                         dialogs.messages.remove(i);
                         i--;
                     }
                 }
                 for (int i=0;i<dialogs.users.size();i++){
-                    if (dialogs.users.get(i).first_name.equals("Telegram")){
+                    if (dialogs.users.get(i).first_name.trim().equals("Telegram")){
                         dialogs.users.remove(i);
                         i--;
                     }

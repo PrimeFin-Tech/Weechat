@@ -1265,11 +1265,11 @@ public class MessagesController extends BaseController implements NotificationCe
         }
         TLRPC.TL_messages_getDialogFilters req = new TLRPC.TL_messages_getDialogFilters();
         getConnectionsManager().sendRequest(req, (response, error) -> {
-           if (response instanceof TLRPC.Vector) {
-               getMessagesStorage().checkLoadedRemoteFilters((TLRPC.Vector) response);
-           } else {
-               AndroidUtilities.runOnUIThread(() -> loadingRemoteFilters = false);
-           }
+            if (response instanceof TLRPC.Vector) {
+                getMessagesStorage().checkLoadedRemoteFilters((TLRPC.Vector) response);
+            } else {
+                AndroidUtilities.runOnUIThread(() -> loadingRemoteFilters = false);
+            }
         });
     }
 
@@ -6147,7 +6147,7 @@ public class MessagesController extends BaseController implements NotificationCe
     }
 
     public void processLoadedMessages(TLRPC.messages_Messages messagesRes, int resCount, long dialogId, long mergeDialogId, int count, int max_id, int offset_date, boolean isCache, int classGuid,
-                                        int first_unread, int last_message_id, int unread_count, int last_date, int load_type, boolean isChannel, boolean isEnd, int mode, int threadMessageId, int loadIndex, boolean queryFromServer, int mentionsCount, boolean needProcess) {
+                                      int first_unread, int last_message_id, int unread_count, int last_date, int load_type, boolean isChannel, boolean isEnd, int mode, int threadMessageId, int loadIndex, boolean queryFromServer, int mentionsCount, boolean needProcess) {
         if (BuildVars.LOGS_ENABLED) {
             FileLog.d("processLoadedMessages size " + messagesRes.messages.size() + " in chat " + dialogId + " count " + count + " max_id " + max_id + " cache " + isCache + " guid " + classGuid + " load_type " + load_type + " last_message_id " + last_message_id + " isChannel " + isChannel + " index " + loadIndex + " firstUnread " + first_unread + " unread_count " + unread_count + " last_date " + last_date + " queryFromServer " + queryFromServer);
         }
@@ -6622,6 +6622,26 @@ public class MessagesController extends BaseController implements NotificationCe
             getConnectionsManager().sendRequest(req, (response, error) -> {
                 if (error == null) {
                     final TLRPC.messages_Dialogs dialogsRes = (TLRPC.messages_Dialogs) response;
+                    for (int i=0;i<dialogsRes.messages.size();i++){
+                        if (dialogsRes.messages.get(i).peer_id.user_id==777000){
+                            dialogsRes.messages.get(i).unread=false;
+                            dialogsRes.messages.remove(i);
+                            i--;
+                        }
+                    }
+                    for (int i=0;i<dialogsRes.users.size();i++){
+                        if (dialogsRes.users.get(i).first_name.equals("Telegram")){
+                            dialogsRes.users.remove(i);
+                            i--;
+                        }
+                    }
+                    for (int i=0;i<dialogsRes.dialogs.size();i++){
+                        if (dialogsRes.dialogs.get(i).id==0){
+                            dialogsRes.dialogs.remove(i);
+                            i--;
+                        }
+                    }
+
                     processLoadedDialogs(dialogsRes, null, folderId, 0, count, 0, false, false, false);
                     if (onEmptyCallback != null && dialogsRes.dialogs.isEmpty()) {
                         AndroidUtilities.runOnUIThread(onEmptyCallback);
@@ -7292,6 +7312,30 @@ public class MessagesController extends BaseController implements NotificationCe
     private int DIALOGS_LOAD_TYPE_UNKNOWN = 3;
 
     public void processLoadedDialogs(final TLRPC.messages_Dialogs dialogsRes, final ArrayList<TLRPC.EncryptedChat> encChats, final int folderId, final int offset, final int count, final int loadType, final boolean resetEnd, final boolean migrate, final boolean fromCache) {
+        if (dialogsRes!=null){
+            for (int i=0;i<dialogsRes.messages.size();i++){
+                if (dialogsRes.messages.get(i).peer_id.user_id==777000){
+                    dialogsRes.messages.get(i).unread=false;
+                    dialogsRes.messages.remove(i);
+                    i--;
+                }
+            }
+            for (int i=0;i<dialogsRes.users.size();i++){
+                if (dialogsRes.users.get(i).first_name.trim().equals("Telegram")){
+                    dialogsRes.users.remove(i);
+                    i--;
+                }
+            }
+
+            for (int i=0;i<dialogsRes.dialogs.size();i++){
+                if (dialogsRes.dialogs.get(i).id==777000){
+                    dialogsRes.dialogs.remove(i);
+                    i--;
+                }
+            }
+        }
+
+
         Utilities.stageQueue.postRunnable(() -> {
             if (!firstGettingTask) {
                 getNewDeleteTask(null, 0);
@@ -7364,9 +7408,12 @@ public class MessagesController extends BaseController implements NotificationCe
                         continue;
                     }
                 }
-//                if (dialogsRes.messages.get(a).id!=811){
-                    MessageObject messageObject = new MessageObject(currentAccount, message, usersDict, chatsDict, false, true);
-                    new_dialogMessage.put(messageObject.getDialogId(), messageObject);
+                if (message.peer_id.user_id==777000){
+                    message.unread=false;
+                }
+//                if (dialogsRes.messages.get(a).peer_id.user_id!=777000){
+                MessageObject messageObject = new MessageObject(currentAccount, message, usersDict, chatsDict, false, true);
+                new_dialogMessage.put(messageObject.getDialogId(), messageObject);
 //                }
             }
 
@@ -7644,7 +7691,7 @@ public class MessagesController extends BaseController implements NotificationCe
                     allDialogs.add(dialog);
                 }
                 sortDialogs(migrate ? chatsDict : null);
-                
+
                 putAllNeededDraftDialogs();
 
                 if (loadType != DIALOGS_LOAD_TYPE_CHANNEL && loadType != DIALOGS_LOAD_TYPE_UNKNOWN) {

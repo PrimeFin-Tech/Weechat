@@ -1415,6 +1415,8 @@ public class LocaleController {
                     currentPluralRules = allRules.get(currentLocale.getLanguage());
                     if (currentPluralRules == null) {
                         currentPluralRules = allRules.get("en");
+//                        currentPluralRules = allRules.get("zh-cn");
+
                     }
                 }
             }

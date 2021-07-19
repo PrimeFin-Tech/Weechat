@@ -474,8 +474,8 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
         }else if (time.contains("Wed")){
             return time= time.replace("Wed","周三");
 
-        }else if (time.contains("Thur")){
-            return time= time.replace("Thur","周四");
+        }else if (time.contains("Thu")){
+            return time= time.replace("Thu","周四");
 
         }else if (time.contains("Fri")){
             return time= time.replace("Fri","周五");
@@ -485,6 +485,12 @@ public class FastDateFormat extends Format implements DateParser, DatePrinter {
 
         }else if (time.contains("Sun")){
             return time= time.replace("Sun","周日");
+
+        }else if (time.contains("AM")){
+            return time= time.replace("AM","上午");
+
+        }else if (time.contains("PM")){
+            return time= time.replace("PM","下午");
 
         }else {
             return printer.format(date);

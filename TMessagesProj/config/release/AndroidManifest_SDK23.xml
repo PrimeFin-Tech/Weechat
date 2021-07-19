@@ -34,7 +34,7 @@
         tools:replace="android:supportsRtl">
 
 <!--        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyA-t0jLPjUt2FxrA8VPK2EiYHcYcboIR6k" />-->
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDAveVcWKaeBXiTAWBsb0XC2akvrRwWwyY" />
+        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyDw_Qdm6S9u49c1Uu5mTuXWjeE6Z14kMg0" />
 
         <service
             android:name=".GcmPushListenerService">

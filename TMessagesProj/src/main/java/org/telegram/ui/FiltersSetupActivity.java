@@ -176,7 +176,13 @@ public class FiltersSetupActivity extends BaseFragment implements NotificationCe
             needDivider = divider;
             suggestedFilter = filter;
             setWillNotDraw(!needDivider);
-
+            if (filter.filter.title.equals("Unread")){
+                filter.filter.title="未读";
+                filter.description="仅展示未读消息的会话框";
+            }else if (filter.filter.title.equals("Personal")){
+                filter.filter.title="个人";
+                filter.description="仅展示个跟个人聊天的会话框";
+            }
             textView.setText(filter.filter.title);
             valueTextView.setText(filter.description);
         }
