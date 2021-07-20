@@ -7312,28 +7312,28 @@ public class MessagesController extends BaseController implements NotificationCe
     private int DIALOGS_LOAD_TYPE_UNKNOWN = 3;
 
     public void processLoadedDialogs(final TLRPC.messages_Dialogs dialogsRes, final ArrayList<TLRPC.EncryptedChat> encChats, final int folderId, final int offset, final int count, final int loadType, final boolean resetEnd, final boolean migrate, final boolean fromCache) {
-        if (dialogsRes!=null){
-            for (int i=0;i<dialogsRes.messages.size();i++){
-                if (dialogsRes.messages.get(i).peer_id.user_id==777000){
-                    dialogsRes.messages.get(i).unread=false;
-                    dialogsRes.messages.remove(i);
-                    i--;
-                }
-            }
-            for (int i=0;i<dialogsRes.users.size();i++){
-                if (dialogsRes.users.get(i).first_name.trim().equals("Telegram")){
-                    dialogsRes.users.remove(i);
-                    i--;
-                }
-            }
-
-            for (int i=0;i<dialogsRes.dialogs.size();i++){
-                if (dialogsRes.dialogs.get(i).id==777000){
-                    dialogsRes.dialogs.remove(i);
-                    i--;
-                }
-            }
-        }
+//        if (dialogsRes!=null){
+//            for (int i=0;i<dialogsRes.messages.size();i++){
+//                if (dialogsRes.messages.get(i).peer_id.user_id==777000){
+//                    dialogsRes.messages.get(i).unread=false;
+//                    dialogsRes.messages.remove(i);
+//                    i--;
+//                }
+//            }
+//            for (int i=0;i<dialogsRes.users.size();i++){
+//                if (dialogsRes.users.get(i).first_name.trim().equals("Telegram")){
+//                    dialogsRes.users.remove(i);
+//                    i--;
+//                }
+//            }
+//
+//            for (int i=0;i<dialogsRes.dialogs.size();i++){
+//                if (dialogsRes.dialogs.get(i).id==777000){
+//                    dialogsRes.dialogs.remove(i);
+//                    i--;
+//                }
+//            }
+//        }
 
 
         Utilities.stageQueue.postRunnable(() -> {

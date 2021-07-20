@@ -10915,26 +10915,26 @@ public class MessagesStorage extends BaseController {
                     getUsersInternal(TextUtils.join(",", usersToLoad), dialogs.users);
                 }
 
-                for (int i=0;i<dialogs.messages.size();i++){
-                    if (dialogs.messages.get(i).peer_id.user_id==777000){
-                        dialogs.messages.get(i).unread=false;
-                        dialogs.messages.remove(i);
-                        i--;
-                    }
-                }
-                for (int i=0;i<dialogs.users.size();i++){
-                    if (dialogs.users.get(i).first_name.trim().equals("Telegram")){
-                        dialogs.users.remove(i);
-                        i--;
-                    }
-                }
-
-                for (int i=0;i<dialogs.dialogs.size();i++){
-                    if (dialogs.dialogs.get(i).id==777000){
-                        dialogs.dialogs.remove(i);
-                        i--;
-                    }
-                }
+//                for (int i=0;i<dialogs.messages.size();i++){
+//                    if (dialogs.messages.get(i).peer_id.user_id==777000){
+//                        dialogs.messages.get(i).unread=false;
+//                        dialogs.messages.remove(i);
+//                        i--;
+//                    }
+//                }
+//                for (int i=0;i<dialogs.users.size();i++){
+//                    if (dialogs.users.get(i).first_name.trim().equals("Telegram")){
+//                        dialogs.users.remove(i);
+//                        i--;
+//                    }
+//                }
+//
+//                for (int i=0;i<dialogs.dialogs.size();i++){
+//                    if (dialogs.dialogs.get(i).id==777000){
+//                        dialogs.dialogs.remove(i);
+//                        i--;
+//                    }
+//                }
                 getMessagesController().processLoadedDialogs(dialogs, encryptedChats, folderId, offset, count, 1, false, false, true);
             } catch (Exception e) {
                 dialogs.dialogs.clear();
