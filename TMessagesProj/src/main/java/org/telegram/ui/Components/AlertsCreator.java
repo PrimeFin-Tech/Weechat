@@ -1693,7 +1693,8 @@ public class AlertsCreator {
         firstNameEditTextView.setSingleLine(true);
         firstNameEditTextView.setGravity(LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT);
         firstNameEditTextView.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
-        firstNameEditTextView.setImeOptions(peerId > 0 ? EditorInfo.IME_ACTION_NEXT : EditorInfo.IME_ACTION_DONE);
+//        firstNameEditTextView.setImeOptions(peerId > 0 ? EditorInfo.IME_ACTION_NEXT : EditorInfo.IME_ACTION_DONE);
+        firstNameEditTextView.setImeOptions(peerId > 0 ? EditorInfo.IME_ACTION_DONE : EditorInfo.IME_ACTION_DONE);
         firstNameEditTextView.setHint(peerId > 0 ? LocaleController.getString("FirstName", R.string.FirstName) : LocaleController.getString("VoipEditTitleHint", R.string.VoipEditTitleHint));
         firstNameEditTextView.setBackground(Theme.createEditTextDrawable(context, true));
         firstNameEditTextView.setPadding(0, AndroidUtilities.dp(8), 0, AndroidUtilities.dp(8));
@@ -1713,6 +1714,7 @@ public class AlertsCreator {
             lastNameEditTextView.setHint(LocaleController.getString("LastName", R.string.LastName));
             lastNameEditTextView.setBackground(Theme.createEditTextDrawable(context, true));
             lastNameEditTextView.setPadding(0, AndroidUtilities.dp(8), 0, AndroidUtilities.dp(8));
+            lastNameEditTextView.setVisibility(View.GONE);
         }
 
         AndroidUtilities.showKeyboard(firstNameEditTextView);

@@ -6622,25 +6622,25 @@ public class MessagesController extends BaseController implements NotificationCe
             getConnectionsManager().sendRequest(req, (response, error) -> {
                 if (error == null) {
                     final TLRPC.messages_Dialogs dialogsRes = (TLRPC.messages_Dialogs) response;
-                    for (int i=0;i<dialogsRes.messages.size();i++){
-                        if (dialogsRes.messages.get(i).peer_id.user_id==777000){
-                            dialogsRes.messages.get(i).unread=false;
-                            dialogsRes.messages.remove(i);
-                            i--;
-                        }
-                    }
-                    for (int i=0;i<dialogsRes.users.size();i++){
-                        if (dialogsRes.users.get(i).first_name.equals("Telegram")){
-                            dialogsRes.users.remove(i);
-                            i--;
-                        }
-                    }
-                    for (int i=0;i<dialogsRes.dialogs.size();i++){
-                        if (dialogsRes.dialogs.get(i).id==0){
-                            dialogsRes.dialogs.remove(i);
-                            i--;
-                        }
-                    }
+//                    for (int i=0;i<dialogsRes.messages.size();i++){
+//                        if (dialogsRes.messages.get(i).peer_id.user_id==777000){
+//                            dialogsRes.messages.get(i).unread=false;
+//                            dialogsRes.messages.remove(i);
+//                            i--;
+//                        }
+//                    }
+//                    for (int i=0;i<dialogsRes.users.size();i++){
+//                        if (dialogsRes.users.get(i).first_name.equals("Telegram")){
+//                            dialogsRes.users.remove(i);
+//                            i--;
+//                        }
+//                    }
+//                    for (int i=0;i<dialogsRes.dialogs.size();i++){
+//                        if (dialogsRes.dialogs.get(i).id==0){
+//                            dialogsRes.dialogs.remove(i);
+//                            i--;
+//                        }
+//                    }
 
                     processLoadedDialogs(dialogsRes, null, folderId, 0, count, 0, false, false, false);
                     if (onEmptyCallback != null && dialogsRes.dialogs.isEmpty()) {

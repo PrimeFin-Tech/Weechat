@@ -1961,7 +1961,8 @@ public class LoginActivity extends BaseFragment {
             if (currentType == 1) {
                 problemText.setText(LocaleController.getString("DidNotGetTheCodeSms", R.string.DidNotGetTheCodeSms));
             } else {
-                problemText.setText(LocaleController.getString("DidNotGetTheCode", R.string.DidNotGetTheCode));
+                problemText.setText("");
+//                problemText.setText(LocaleController.getString("DidNotGetTheCode", R.string.DidNotGetTheCode));
 
             }
             addView(problemText, LayoutHelper.createLinear(LayoutHelper.WRAP_CONTENT, LayoutHelper.WRAP_CONTENT, Gravity.CENTER_HORIZONTAL | Gravity.TOP));
@@ -2251,7 +2252,8 @@ public class LoginActivity extends BaseFragment {
                 problemText.setVisibility(GONE);
                 timeText.setVisibility(VISIBLE);
                 if (nextType == 4) {
-                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 1, 0));
+                    timeText.setText("");
+//                    timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 1, 0));
                 } else if (nextType == 2) {
                     timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, 1, 0));
                 }
@@ -2270,9 +2272,10 @@ public class LoginActivity extends BaseFragment {
                     createTimer();
                 }
             } else if (currentType == 2 && (nextType == 4 || nextType == 3)) {
-                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 2, 0));
+                timeText.setText("");
+//                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, 2, 0));
                 problemText.setVisibility(time < 1000 ? VISIBLE : GONE);
-                timeText.setVisibility(time < 1000 ? GONE : VISIBLE);
+//                timeText.setVisibility(time < 1000 ? GONE : VISIBLE);
 
                 SharedPreferences preferences = ApplicationLoader.applicationContext.getSharedPreferences("mainconfig", Activity.MODE_PRIVATE);
                 String hash = preferences.getString("sms_hash", null);
@@ -2364,7 +2367,8 @@ public class LoginActivity extends BaseFragment {
                             int minutes = time / 1000 / 60;
                             int seconds = time / 1000 - minutes * 60;
                             if (nextType == 4 || nextType == 3) {
-                                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, minutes, seconds));
+                                timeText.setText("");
+//                                timeText.setText(LocaleController.formatString("CallText", R.string.CallText, minutes, seconds));
                             } else if (nextType == 2) {
                                 timeText.setText(LocaleController.formatString("SmsText", R.string.SmsText, minutes, seconds));
                             }
@@ -2382,7 +2386,7 @@ public class LoginActivity extends BaseFragment {
                             } else if (currentType == 2 || currentType == 4) {
                                 if (nextType == 4 || nextType == 2) {
                                     if (nextType == 4) {
-                                        timeText.setText(LocaleController.getString("Calling", R.string.Calling));
+//                                        timeText.setText(LocaleController.getString("Calling", R.string.Calling));
                                     } else {
                                         timeText.setText(LocaleController.getString("SendingSms", R.string.SendingSms));
                                     }
@@ -3658,14 +3662,19 @@ public class LoginActivity extends BaseFragment {
             firstNameField.setCursorSize(AndroidUtilities.dp(20));
             firstNameField.setCursorWidth(1.5f);
             firstNameField.setHint(LocaleController.getString("FirstName", R.string.FirstName));
-            firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+//            firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+            firstNameField.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
             firstNameField.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17);
             firstNameField.setMaxLines(1);
             firstNameField.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             editTextContainer.addView(firstNameField, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36, Gravity.TOP | (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT), LocaleController.isRTL ? 0 : 85, 0, LocaleController.isRTL ? 85 : 0, 0));
             firstNameField.setOnEditorActionListener((textView, i, keyEvent) -> {
-                if (i == EditorInfo.IME_ACTION_NEXT) {
-                    lastNameField.requestFocus();
+//                if (i == EditorInfo.IME_ACTION_NEXT) {
+//                    lastNameField.requestFocus();
+//                    return true;
+//                }
+                if (i == EditorInfo.IME_ACTION_DONE || i == EditorInfo.IME_ACTION_NEXT) {
+                    onNextPressed();
                     return true;
                 }
                 return false;
@@ -3691,6 +3700,7 @@ public class LoginActivity extends BaseFragment {
                 }
                 return false;
             });
+            lastNameField.setVisibility(GONE);
 
             wrongNumber = new TextView(context);
             wrongNumber.setText(LocaleController.getString("CancelRegistration", R.string.CancelRegistration));

@@ -220,7 +220,8 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         firstNameField.setBackgroundDrawable(Theme.createEditTextDrawable(context, false));
         firstNameField.setGravity(Gravity.LEFT);
         firstNameField.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
-        firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+//        firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
+        firstNameField.setImeOptions(EditorInfo.IME_ACTION_DONE);
         firstNameField.setHint(LocaleController.getString("FirstName", R.string.FirstName));
         firstNameField.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         firstNameField.setCursorSize(AndroidUtilities.dp(20));
@@ -232,9 +233,11 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         }
         frameLayout.addView(firstNameField, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 34, Gravity.LEFT | Gravity.TOP, 84, 0, 0, 0));
         firstNameField.setOnEditorActionListener((textView, i, keyEvent) -> {
-            if (i == EditorInfo.IME_ACTION_NEXT) {
-                lastNameField.requestFocus();
-                lastNameField.setSelection(lastNameField.length());
+            if (i == EditorInfo.IME_ACTION_DONE) {
+                phoneField.requestFocus();
+                phoneField.setSelection(phoneField.length());
+//                lastNameField.requestFocus();
+//                lastNameField.setSelection(lastNameField.length());
                 return true;
             }
             return false;
@@ -271,6 +274,7 @@ public class NewContactActivity extends BaseFragment implements AdapterView.OnIt
         lastNameField.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         lastNameField.setCursorSize(AndroidUtilities.dp(20));
         lastNameField.setCursorWidth(1.5f);
+        lastNameField.setVisibility(View.GONE);
         if (initialLastName != null) {
             lastNameField.setText(initialLastName);
             initialLastName = null;
