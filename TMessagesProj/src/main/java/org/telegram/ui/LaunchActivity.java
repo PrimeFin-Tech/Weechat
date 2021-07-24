@@ -230,7 +230,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         getProxy();
-        setThem();
+//        setThem();
         ApplicationLoader.postInitApplication();
         AndroidUtilities.checkDisplaySize(this, getResources().getConfiguration());
         currentAccount = UserConfig.selectedAccount;
@@ -876,7 +876,7 @@ public class LaunchActivity extends Activity implements ActionBarLayout.ActionBa
 //        Theme.ThemeInfo  applyingTheme = Theme.getCurrentTheme();
 //        Theme.ThemeAccent accent = applyingTheme.getAccent(false);
 //        accent.accentColor=-2076644;
-        Theme.refreshThemeColors();
+//        Theme.refreshThemeColors();
         //FileLog.d("UI create time = " + (SystemClock.elapsedRealtime() - ApplicationLoader.startTime));
     }
 

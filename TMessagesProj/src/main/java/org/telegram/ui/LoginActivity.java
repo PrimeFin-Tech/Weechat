@@ -3662,19 +3662,14 @@ public class LoginActivity extends BaseFragment {
             firstNameField.setCursorSize(AndroidUtilities.dp(20));
             firstNameField.setCursorWidth(1.5f);
             firstNameField.setHint(LocaleController.getString("FirstName", R.string.FirstName));
-//            firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
-            firstNameField.setImeOptions(EditorInfo.IME_ACTION_DONE | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
+            firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT | EditorInfo.IME_FLAG_NO_EXTRACT_UI);
             firstNameField.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 17);
             firstNameField.setMaxLines(1);
             firstNameField.setInputType(InputType.TYPE_TEXT_FLAG_CAP_WORDS);
             editTextContainer.addView(firstNameField, LayoutHelper.createFrame(LayoutHelper.MATCH_PARENT, 36, Gravity.TOP | (LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT), LocaleController.isRTL ? 0 : 85, 0, LocaleController.isRTL ? 85 : 0, 0));
             firstNameField.setOnEditorActionListener((textView, i, keyEvent) -> {
-//                if (i == EditorInfo.IME_ACTION_NEXT) {
-//                    lastNameField.requestFocus();
-//                    return true;
-//                }
-                if (i == EditorInfo.IME_ACTION_DONE || i == EditorInfo.IME_ACTION_NEXT) {
-                    onNextPressed();
+                if (i == EditorInfo.IME_ACTION_NEXT) {
+                    lastNameField.requestFocus();
                     return true;
                 }
                 return false;
@@ -3700,7 +3695,6 @@ public class LoginActivity extends BaseFragment {
                 }
                 return false;
             });
-            lastNameField.setVisibility(GONE);
 
             wrongNumber = new TextView(context);
             wrongNumber.setText(LocaleController.getString("CancelRegistration", R.string.CancelRegistration));
@@ -3982,7 +3976,8 @@ public class LoginActivity extends BaseFragment {
             }
             String last = bundle.getString("registerview_last");
             if (last != null) {
-                lastNameField.setText(last);
+//                lastNameField.setText(last);
+                lastNameField.setText("");
             }
         }
 

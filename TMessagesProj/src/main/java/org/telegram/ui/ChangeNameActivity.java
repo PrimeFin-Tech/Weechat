@@ -88,19 +88,16 @@ public class ChangeNameActivity extends BaseFragment {
         firstNameField.setSingleLine(true);
         firstNameField.setGravity(LocaleController.isRTL ? Gravity.RIGHT : Gravity.LEFT);
         firstNameField.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES | InputType.TYPE_TEXT_FLAG_AUTO_CORRECT);
-//        firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
-        firstNameField.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        firstNameField.setImeOptions(EditorInfo.IME_ACTION_NEXT);
         firstNameField.setHint(LocaleController.getString("FirstName", R.string.FirstName));
         firstNameField.setCursorColor(Theme.getColor(Theme.key_windowBackgroundWhiteBlackText));
         firstNameField.setCursorSize(AndroidUtilities.dp(20));
         firstNameField.setCursorWidth(1.5f);
         linearLayout.addView(firstNameField, LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 36, 24, 24, 24, 0));
         firstNameField.setOnEditorActionListener((textView, i, keyEvent) -> {
-//            IME_ACTION_NEXT
-            if (i == EditorInfo.IME_ACTION_DONE) {
-                doneButton.performClick();
-//                lastNameField.requestFocus();
-//                lastNameField.setSelection(lastNameField.length());
+            if (i == EditorInfo.IME_ACTION_NEXT) {
+                lastNameField.requestFocus();
+                lastNameField.setSelection(lastNameField.length());
                 return true;
             }
             return false;
@@ -129,7 +126,7 @@ public class ChangeNameActivity extends BaseFragment {
             }
             return false;
         });
-        lastNameField.setVisibility(View.GONE);
+
         if (user != null) {
             firstNameField.setText(user.first_name);
             firstNameField.setSelection(firstNameField.length());

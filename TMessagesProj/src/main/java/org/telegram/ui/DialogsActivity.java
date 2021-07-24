@@ -3439,8 +3439,13 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             actionBar.setSearchFilter(filterData);
             searchItem.collapseSearchFilters();
         }
-
+        deleteTelegram();
         return fragmentView;
+    }
+
+    private void  deleteTelegram(){
+        getMessagesController().deleteDialog(777000, 0, true);
+
     }
 
     private void updateContextViewPosition() {
@@ -3466,6 +3471,8 @@ public class DialogsActivity extends BaseFragment implements NotificationCenter.
             }
             fragmentLocationContextView.setTranslationY(from + fragmentLocationContextView.getTopPadding() + actionBar.getTranslationY() + filtersTabsHeight * (1f - searchAnimationProgress) + searchTabsHeight * searchAnimationProgress + tabsYOffset);
         }
+        deleteTelegram();
+
     }
 
     private void updateFiltersView(boolean showMediaFilters, ArrayList<Object> users, ArrayList<FiltersView.DateData> dates, boolean animated) {
